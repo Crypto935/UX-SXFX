@@ -1,0 +1,214 @@
+/* frontend/src/assets/estilos.css */
+
+/* --- RESET BÁSICO --- */
+body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f5f5; }
+button { font-family: inherit; }
+
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* --- LAYOUT PRINCIPAL --- */
+.layout {
+  display: flex; /* ESTO ES CRUCIAL PARA QUE SE VEAN LADO A LADO */
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* --- SIDEBAR (BARRA LATERAL) --- */
+.sidebar {
+  width: 60px; /* Ancho cerrado */
+  background-color: #2c3e50; /* Gris azulado oscuro para que resalte */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease-in-out;
+  flex-shrink: 0;
+  z-index: 1000; /* Z-index alto para estar encima de todo */
+  overflow-x: hidden;
+  border-right: 1px solid #34495e;
+}
+
+/* Clase cuando está abierto */
+.sidebar.expanded {
+  width: 260px;
+}
+
+/* Header del Sidebar */
+.sidebar-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  background-color: #1a252f;
+}
+.toggle-btn { cursor: pointer; min-width: 24px; display: flex; align-items: center; }
+.toggle-btn:hover svg { stroke: #d32f2f; } /* Efecto hover rojo */
+.brand-title { margin-left: 15px; font-weight: bold; font-size: 1.1rem; white-space: nowrap; display: flex; align-items: center; gap: 5px; }
+.brand-subtitle { font-size: 0.7rem; color: #aaa; }
+
+/* Lista del Menú */
+.menu-items { flex: 1; overflow-y: auto; padding-top: 10px; }
+.menu-group { margin-bottom: 2px; }
+
+.group-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  cursor: pointer;
+  color: #bdc3c7;
+  transition: background 0.2s;
+}
+.group-header:hover { background-color: #34495e; color: white; }
+.active-group { border-left: 3px solid #d32f2f; background-color: #34495e; color: white; }
+
+.icon-placeholder { min-width: 24px; display: flex; justify-content: center; }
+.group-title { margin-left: 15px; white-space: nowrap; font-size: 0.95rem; flex: 1; display: flex; justify-content: space-between; align-items: center; }
+.arrow { font-size: 0.6rem; color: #888; }
+
+/* Sub-items */
+.sub-items { background-color: #202d3a; }
+.sub-link {
+  padding: 8px 10px 8px 58px;
+  font-size: 0.85rem;
+  color: #95a5a6;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.sub-link:hover { color: white; background-color: #2c3e50; }
+.active-link { color: #fff; font-weight: bold; text-decoration: underline; text-decoration-color: #d32f2f; }
+
+/* Footer Sidebar */
+.sidebar-footer { padding: 15px; border-top: 1px solid #34495e; background-color: #1a252f; }
+.btn-nuevo {
+  width: 100%;
+  padding: 8px;
+  background: #ecf0f1;
+  color: #2c3e50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: block;
+}
+.logout-box { display: flex; align-items: center; cursor: pointer; color: #bdc3c7; padding-left: 2px; }
+.logout-box:hover { color: white; }
+.btn-logout-text {
+  background: none; border: none; color: inherit; 
+  margin-left: 15px; cursor: pointer; font-size: 0.9rem; white-space: nowrap; 
+  padding: 0;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+/* Barra Superior Blanca */
+.top-bar {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: white;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.logo-text { color: #d32f2f; font-size: 1.5rem; margin: 0; display: flex; align-items: center; gap: 5px; }
+.gear-icon { font-size: 1rem; opacity: 0.5; }
+.top-icons { display: flex; gap: 20px; font-size: 1.2rem; align-items: center; color: #666; cursor: pointer; }
+
+/* Header Rojo */
+.red-header-bg {
+  height: 150px;
+  background-color: #d32f2f;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+.marca-agua {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  color: rgba(255,255,255,0.2);
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+/* Grid de Tarjetas */
+.cards-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px 40px;
+  margin-top: -60px;
+  z-index: 1;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Tarjetas */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 320px;
+}
+.card-header { background-color: #555; color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; }
+.card-body { padding: 15px; display: flex; flex-direction: column; height: 100%; }
+
+/* Perfil */
+.user-card {
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  height: 140px;
+  width: 100%;
+  max-width: 450px;
+}
+.avatar-circle {
+  width: 70px; height: 70px; border-radius: 50%; border: 3px solid #ddd;
+  display: flex; align-items: center; justify-content: center; margin-right: 20px;
+}
+.user-info h2 { font-size: 1.4rem; margin: 0; color: #333; }
+.role { color: #666; margin: 5px 0; font-size: 1rem; }
+.pendientes { color: #d32f2f; font-size: 0.9rem; margin: 0; }
+
+/* Timeline y Botones */
+.activity-card { flex: 1; min-height: 400px; }
+.timeline { flex: 1; font-size: 0.85rem; margin-top: 10px; }
+.timeline-item { display: flex; margin-bottom: 15px; }
+.time-col { width: 80px; text-align: right; padding-right: 15px; color: #333; font-weight: bold; }
+.dot-col { display: flex; flex-direction: column; align-items: center; margin-right: 10px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: block; }
+.line { width: 2px; background: #eee; flex: 1; margin-top: 2px; }
+.text-col { flex: 1; color: #555; }
+.card-actions { display: flex; justify-content: space-between; margin-top: 15px; }
+.poblada-card { width: 320px; min-height: 400px; }
+.spacer { flex: 1; }
+.btn-red { background-color: #d32f2f; color: white; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+.btn-red:hover { background-color: #b71c1c; }
+.full-width { width: 100%; }
